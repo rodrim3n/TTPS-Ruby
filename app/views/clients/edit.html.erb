@@ -1,0 +1,18 @@
+<h1>Cliente <%= @client.name %> </h1>
+
+<%= form_for :client, url: client_path(@client), method: :patch do |f| %>
+
+  <p>
+  <%= f.label :Genero %><br>
+  <%= f.text_field :gender %>
+  </p>
+
+  <p>
+  <%= f.submit "Guardar" %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Volver', clients_path %>
+
+

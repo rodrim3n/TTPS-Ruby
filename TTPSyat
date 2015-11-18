@@ -1,0 +1,15 @@
+#= AUTHOR: farfanoide (https://github.com/farfanoide)
+#= DESCRIPTION: Basic tmux global session
+
+new_session -n 'general'
+send_line 'general' 'gs'
+
+new_window -n 'editor'
+send_line 'editor' 'vi'
+
+new_window -n 'console'
+send_line 'console' 'pry'
+
+new_window -n 'server'
+send_line 'server' 'be rails s'
+

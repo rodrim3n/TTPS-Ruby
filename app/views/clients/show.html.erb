@@ -1,0 +1,10 @@
+<h1>Cliente <%= @client.name %> </h1>
+
+<ul>
+  <li><%= @client.lastname %></li>
+  <li><%= @client.dni %></li>
+  <li><%= @client.birthdate %></li>
+  <li><%= @client.gender %></li>
+</ul>
+
+<%= link_to 'Volver', clients_path %>
