@@ -16,5 +16,15 @@
   <%= f.label :Fecha_de_Nacimiento %>
   <%= f.date_field :birthdate %>
 
+  <strong>Medios de contacto:</strong>
+  <%= f.fields_for :contacts do |contact| %>
+    <%= contact.check_box :_destroy %>
+    <%= contact.label :Tipo_de_Contacto %>
+    <%= contact.text_field :type %>
+
+    <%= contact.label :Valor %>
+    <%= contact.text_field :value %>
+  <% end %>
+
   <%= f.submit "Crear" %>
 <% end %>

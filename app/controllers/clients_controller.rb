@@ -5,6 +5,7 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
+    2.times { @client.contacts.build }
   end
 
   def show
@@ -41,6 +42,9 @@ class ClientsController < ApplicationController
 
   private
   def client_params
-    params.require(:client).permit(:name, :lastname, :gender, :dni, :birthdate)
+    params.require(:client).permit(:name, :lastname,
+                                   :gender, :dni, :birthdate,
+                                   contacts_attributes: [:id, :type, :value, :_destroy],
+                                  )
   end
 end
