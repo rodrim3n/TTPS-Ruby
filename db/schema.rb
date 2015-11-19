@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151118151112) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "type"
+    t.string   "source"
     t.string   "value"
     t.integer  "client_id"
     t.datetime "created_at", null: false

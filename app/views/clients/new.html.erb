@@ -1,30 +1,3 @@
 <h3>Nuevo cliente</h3>
 
-<%= form_for :client, url: clients_path do |f| %>
-  <%= f.label :Nombre %>
-  <%= f.text_field :name %>
-
-  <%= f.label :Apellido %>
-  <%= f.text_field :lastname %>
-
-  <%= f.label :Genero %>
-  <%= f.text_field :gender %>
-
-  <%= f.label :DNI %>
-  <%= f.number_field :dni %>
-
-  <%= f.label :Fecha_de_Nacimiento %>
-  <%= f.date_field :birthdate %>
-
-  <strong>Medios de contacto:</strong>
-  <%= f.fields_for :contacts do |contact| %>
-    <%= contact.check_box :_destroy %>
-    <%= contact.label :Tipo_de_Contacto %>
-    <%= contact.text_field :type %>
-
-    <%= contact.label :Valor %>
-    <%= contact.text_field :value %>
-  <% end %>
-
-  <%= f.submit "Crear" %>
-<% end %>
+<%= render 'form' %>

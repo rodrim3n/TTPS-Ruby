@@ -1,0 +1,13 @@
+<p>
+<%= f.label :value, "Contacto" %>
+<%= f.text_field :value %>
+
+<%= f.select(:source) do %>
+  <% ['Whatsapp', 'Telefono', 'Mail'].each do |c| %>
+    <%= content_tag(:option, c, value: c) %>
+  <% end %>
+<% end %>
+
+<%= f.label :_destroy, "Eliminar" %>
+<%= f.check_box :_destroy %>
+</p>

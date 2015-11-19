@@ -8,13 +8,14 @@
   </tr>
   <tr>
 <% @clients.each do |c| %>
-  <th><%= c.name %></th>
-  <th>
-    <%= link_to 'ver', client_path(c) %>
-    <%= link_to 'editar', edit_client_path(c) %>
-    <%= link_to 'borrar', client_path(c), method: :delete,
-      data: {confirm: 'Esta seguro de eliminar al cliente?'} %>
-  </th>
+    <td><%= c.name %></td>
+    <td>
+      <%= link_to 'ver', client_path(c) %>
+      <%= link_to 'editar', edit_client_path(c) %>
+      <%= link_to 'borrar', client_path(c), method: :delete,
+        data: {confirm: 'Esta seguro de eliminar al cliente?'} %>
+    </td>
+  </tr>
 <% end %>
   </tr>
 </table>
