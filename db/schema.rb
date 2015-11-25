@@ -11,26 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118151112) do
+ActiveRecord::Schema.define(version: 20151125224739) do
+
+  create_table "bills", force: :cascade do |t|
+    t.integer  "person_id"
+    t.integer  "client_id"
+    t.text     "description"
+    t.float    "total",         null: false
+    t.date     "emission_date"
+    t.date     "false"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "bills", ["client_id"], name: "index_bills_on_client_id"
+  add_index "bills", ["person_id"], name: "index_bills_on_person_id"
 
   create_table "clients", force: :cascade do |t|
-    t.string   "name"
-    t.string   "lastname"
-    t.string   "gender"
-    t.integer  "dni"
-    t.date     "birthdate"
+    t.string   "name",       null: false
+    t.string   "surname",    null: false
+    t.string   "gender",     null: false
+    t.integer  "dni",        null: false
+    t.date     "birthdate",  null: false
+    t.string   "cui",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "source"
-    t.string   "value"
+    t.string   "source",     null: false
+    t.string   "value",      null: false
     t.integer  "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "contacts", ["client_id"], name: "index_contacts_on_client_id"
+
+  create_table "people", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "cui",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
