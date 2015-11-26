@@ -10,5 +10,8 @@
     <%= render 'contact_fields', f: builder %>
   <% end %>
 
-  <%= f.submit "Crear" %>
+  <%= f.submit "Guardar cambios" %>
 <% end %>
+
+<%= link_to 'Show', @client %> |
+<%= link_to 'Back', clients_path %>

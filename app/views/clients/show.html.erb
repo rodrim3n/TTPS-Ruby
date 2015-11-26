@@ -1,10 +1,10 @@
-<h1>Cliente <%= @client.name %> </h1>
+<h1>Cliente  </h1>
 
 <ul>
-  <li><%= @client.lastname %></li>
-  <li><%= @client.dni %></li>
-  <li><%= @client.birthdate %></li>
-  <li><%= @client.gender %></li>
+  <li><%= "#{@client.name}  #{@client.surname}" %></li>
+  <li>DNI: <%= @client.dni %></li>
+  <li>Fecha de nacimiento: <%= @client.birthdate %></li>
+  <li>Genero: <%= @client.gender %></li>
   <li>Contactos:
     <ol>
     <% @client.contacts.each do |contact| %>
