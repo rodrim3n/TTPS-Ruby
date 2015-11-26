@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :contacts
   end
 
+  resources :bills
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

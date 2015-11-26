@@ -1,0 +1,31 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.label :description, 'Descripcion' %>
+    <%= f.text_field :description %>
+
+    <%= f.label :total, 'Monto' %>
+    <%= f.text_field :total %>
+
+    <%= f.label :client_id, 'Cliente' %>
+    <%= f.collection_select :client_id, Client.all, :id, :name %>
+
+    <%= f.label :person_id, 'Persona final' %>
+    <%= f.collection_select :person_id, Person.all, :id, :name %>
+
+    <%= f.label :emission_date, "Fecha de emision" %>
+    <%= f.date_field :emission_date %>
+    <%= f.submit %>
+  </div>
+<% end %>
