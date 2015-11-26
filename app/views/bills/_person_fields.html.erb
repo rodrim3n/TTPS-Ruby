@@ -1,0 +1,11 @@
+<%= form_for :person, remote: true, url: {controller: "people", action: "create"}, id: 'new_person' do |f| %>
+  <div class="actions">
+  <%= f.label :name, 'Nombre' %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :cui, 'CUIT/CUIL' %><br>
+  <%= f.text_field :cui %><br>
+
+  <%= f.submit 'Guardar'%>
+</div>
+<% end %>
