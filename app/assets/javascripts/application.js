@@ -17,3 +17,5 @@
 
 //= require select2
 //= require select2_locale_es
+
+//= require bootstrap-sprockets
