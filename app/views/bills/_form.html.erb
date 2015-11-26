@@ -12,20 +12,39 @@
   <% end %>
 
   <div class="actions">
-    <%= f.label :description, 'Descripcion' %>
-    <%= f.text_field :description %>
+    <%= f.label :description, 'Descripcion' %><br>
+    <%= f.text_field :description %><br>
 
-    <%= f.label :total, 'Monto' %>
-    <%= f.text_field :total %>
+    <%= f.label :total, 'Monto' %><br>
+    <%= f.text_field :total %><br>
 
-    <%= f.label :client_id, 'Cliente' %>
-    <%= f.collection_select :client_id, Client.all, :id, :name %>
+    <%= f.label :client_id, 'CUIT/CUIL del Cliente' %><br>
+    <%= f.collection_select :client_id, Client.all, :id, :cui %><br>
 
-    <%= f.label :person_id, 'Persona final' %>
-    <%= f.collection_select :person_id, Person.all, :id, :name %>
+    <%= f.label :person_id, 'CUIT/CUIL de la Persona' %><br>
+    <%= f.collection_select :person_id, Person.all, :id, :cui %>
 
-    <%= f.label :emission_date, "Fecha de emision" %>
-    <%= f.date_field :emission_date %>
+    <%= link_to 'Nueva Person', '#new_person', 'data-toggle' => 'modal' %><br>
+
+    <%= f.label :emission_date, "Fecha de emision" %><br>
+    <%= f.date_field :emission_date %><br>
     <%= f.submit %>
   </div>
 <% end %>
+
+<div class="modal fade" id="new_person" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Crear nueva Persona</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'person_fields' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

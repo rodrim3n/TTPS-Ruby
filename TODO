@@ -1,3 +1,3 @@
-Add CUIT/CUIL to client model
+Enviar mensaje de error si no se pudo crear la persona (personcontroller)
 
-client#edit mostrar bien los contactos!
+Mostrar mensaje satisfactorio si se pudo crear con exito la persona
