@@ -1,26 +1,50 @@
-<%= form_for @client do |f| %>
-  <%= f.label :name, 'Nombre' %>
-  <%= f.text_field :name %>
+<%= form_for @client, html: {class: 'form-horizontal'} do |f| %>
+  <div class="form-group">
+    <%= f.label :name, 'Nombre', :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-5">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <%= f.label :surname, 'Apellido' %>
-  <%= f.text_field :surname %>
+  <div class="form-group">
+    <%= f.label :surname, 'Apellido', :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-5">
+      <%= f.text_field :surname, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <%= f.label :gender, 'Genero' %>
-  <%= f.text_field :gender %>
+  <div class="form-group">
+    <%= f.label :gender, 'Genero', :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-5">
+      <%= f.text_field :gender, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <%= f.label :dni, 'DNI' %>
-  <%= f.number_field :dni %>
+  <div class="form-group">
+    <%= f.label :dni, 'DNI', :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-5">
+      <%= f.number_field :dni, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <%= f.label :cui, 'CUIT/CUIL' %>
-  <%= f.number_field :cui %>
+  <div class="form-group">
+    <%= f.label :cui, 'CUIT/CUIL', :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-5">
+      <%= f.number_field :cui, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <%= f.label :birthdate, "Fecha de nacimiento" %>
-  <%= f.date_field :birthdate %>
+  <div class="form-group">
+    <%= f.label :birthdate, "Fecha de nacimiento", :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-5">
+      <%= f.date_field :birthdate, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <strong>Medios de contacto:</strong>
+  <h3 class="text-center">Medios de contacto:</h3>
   <%= f.fields_for :contacts do |builder| %>
     <%= render 'contact_fields', f: builder %>
   <% end %>
 
-  <%= f.submit "Crear" %>
+  <%= f.submit "Crear", :class => 'btn-lg btn btn-success' %>
 <% end %>

@@ -1,13 +1,19 @@
-<p>
-<%= f.label :value, "Contacto" %>
-<%= f.text_field :value %>
+<div class="form-group">
+    <%= f.label :value, "Contacto", :class => 'col-sm-2 control-label' %>
+  <div class="col-sm-5">
+    <%= f.text_field :value, :class => 'form-control' %>
 
-<%= f.select(:source) do %>
-  <% ['Whatsapp', 'Telefono', 'Mail'].each do |c| %>
-    <%= content_tag(:option, c, value: c) %>
-  <% end %>
-<% end %>
+    <%= f.select(:source) do %>
+      <% ['Whatsapp', 'Telefono', 'Mail'].each do |c| %>
+        <%= content_tag(:option, c, value: c) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<%= f.label :_destroy, "Eliminar" %>
-<%= f.check_box :_destroy %>
-</p>
+<div class="form-group">
+  <%= f.label :_destroy, "Eliminar", :class => 'col-sm-2 control-label' %>
+  <div class="col-sm-5">
+    <%= f.check_box :_destroy %>
+  </div>
+</div>

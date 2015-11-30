@@ -1,10 +1,25 @@
-<p id="notice"><%= notice %></p>
+<h1 class="text-capitalize"><%= "#{@bill.client.name}  #{@bill.client.surname}" %></h1>
 
-<p>Cliente: <%= "#{@bill.client.name} #{@bill.client.surname}" %></p>
-<p>Persona: <%= @bill.person.name %></p>
-<p>Descripcion: <%= @bill.description %> </p>
-<p>Monto: <%= @bill.total %></p>
-<p>Fecha: <%= @bill.emission_date %></p>
+<dl class="dl-horizontal">
+  <dt>CUIT/CUIL del cliente:<dt>
+  <dd><%= @bill.client.cui %></dt>
 
-<%= link_to 'Edit', edit_bill_path(@bill) %> |
-<%= link_to 'Back', bills_path %>
+  <dt>Fecha de emision: </dt>
+  <dd><%= @bill.emission_date %></dd>
+
+  <dt>Persona:</dt>
+  <dd><%= @bill.person.name %></dd>
+
+  <dt>CUIT/CUIL de la Persona:</dt>
+  <dd><%= @bill.person.cui %></dd>
+
+  <dt>Descripcion:</dt>
+  <dd><%= @bill.description %></dd>
+
+  <dt>Monto:</dt>
+  <dd><%= @bill.total %></dd>
+
+</dl>
+
+<%= link_to 'Edit', edit_bill_path(@bill), :class => 'btn btn-primary' %>
+<%= link_to 'Back', bills_path, :class => 'btn btn-warning' %>

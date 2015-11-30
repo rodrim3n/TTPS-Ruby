@@ -1,26 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-heading">Facturas</div>
 
-<h1>Listing Bills</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bills.each do |bill| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td>Factura numero: <%= bill.id %></td>
-        <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
-        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Numero de factura</th>
+        <th>Fecha de emision</th>
+        <th>Cliente</th>
+        <th>CUIL/CUIT</th>
+        <th>Acciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @bills.each do |bill| %>
+        <tr>
+          <td><%= bill.id %></td>
+          <td><%= bill.emission_date %></td>
+          <td><%= "#{bill.client.name}  #{bill.client.surname}"%></td>
+          <td><%= bill.client.cui %></td>
+          <td>
+            <%= link_to 'Ver', bill, :class => 'btn btn-info' %>
+            <%= link_to 'Editar', edit_bill_path(bill), :class => 'btn btn-primary' %>
+            <%= link_to 'Borrar', bill, method: :delete, data: { confirm: 'Esta seguro?' }, :class => 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'New Bill', new_bill_path %>
+<%= link_to 'Crear factura', new_bill_path, :class => 'btn btn-default' %>

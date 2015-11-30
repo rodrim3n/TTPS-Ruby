@@ -1,17 +1,21 @@
-<h1>Cliente:  <%= @client.name %> </h1>
+<h1 class="text-center">Cliente:  <%= "#{@client.name} #{@client.surname}" %> </h1>
 
-<%= form_for @client do |f| %>
+<%= form_for @client, html: {class: 'form-horizontal'} do |f| %>
 
-  <%= f.label :gender, 'Genero' %>
-  <%= f.text_field :gender %>
+  <div class="form-group">
+    <%= f.label :gender, 'Genero', :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-5">
+      <%= f.text_field :gender, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <strong>Medios de contacto:</strong>
+  <h3 class="text-center">Medios de contacto:</h3>
   <%= f.fields_for :contacts do |builder| %>
     <%= render 'contact_fields', f: builder %>
   <% end %>
 
-  <%= f.submit "Guardar cambios" %>
+  <%= f.submit "Guardar cambios", :class => 'btn btn-lg btn-success' %>
 <% end %>
 
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to 'Volver', clients_path, :class => 'btn btn-warning' %>
+<%= link_to 'Ver', @client, :class => 'btn btn-info' %>

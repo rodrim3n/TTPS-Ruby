@@ -1,21 +1,30 @@
-<h1>Cliente  </h1>
+<h1 class="text-capitalize"><%= "#{@client.name}  #{@client.surname}" %></h1>
 
-<ul>
-  <li><%= "#{@client.name}  #{@client.surname}" %></li>
-  <li>DNI: <%= @client.dni %></li>
-  <li>Fecha de nacimiento: <%= @client.birthdate %></li>
-  <li>Genero: <%= @client.gender %></li>
-  <li>Contactos:
-    <ol>
-    <% @client.contacts.each do |contact| %>
-      <li>
-          <%= contact.source << ':'%>
-          <%= contact.value %>
-    </li>
-    <% end %>
-    </ol>
-  </li>
-</ul>
+<dl class="dl-horizontal">
+  <dt>DNI</dt>
+  <dd><%= @client.dni %></dd>
 
-<%= link_to 'Volver', clients_path %>
-<%= link_to 'Editar', edit_client_path(@client) %>
+  <dt>Fecha de nacimiento:</dt>
+  <dd><%= @client.birthdate %></dd>
+
+  <dt>Genero:</dt> 
+  <dd><%= @client.gender %></dd>
+
+  <dt>CUIT/CUIL:</dt> 
+  <dd><%= @client.cui %></dd>
+
+  <dt>Contactos:</dt> 
+  <dd>
+    <ul>
+      <% @client.contacts.each do |contact| %>
+        <li>
+        <%= contact.source << ':'%>
+        <%= contact.value %>
+        </li>
+      <% end %>
+    </ul>
+  </dd>
+</dl>
+
+<%= link_to 'Volver', clients_path, :class => 'btn btn-warning' %>
+<%= link_to 'Editar', edit_client_path(@client), :class => 'btn btn-primary' %>
