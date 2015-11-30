@@ -1,3 +1,5 @@
+Validar y mostrar mensajes de los abm's
+
 Enviar mensaje de error si no se pudo crear la persona (personcontroller)
 
 Mostrar mensaje satisfactorio si se pudo crear con exito la persona

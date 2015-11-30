@@ -1,8 +1,13 @@
 class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
-    if @person.save
-      render json: { person_id: @person.id, person_name: @person.name, person_cui: @person.cui }
+
+    respond_to do |format|
+      if @person.save
+        format.json { render json:  {person: @person}, status: :created }
+      else
+        format.json { render json:  {errors: @person.errors}, status: :unprocessable_entity }
+      end
     end
   end
 
