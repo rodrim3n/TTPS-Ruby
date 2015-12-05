@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'select2-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-turbolinks'
+gem 'nested_form'
+gem 'rails-i18n'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

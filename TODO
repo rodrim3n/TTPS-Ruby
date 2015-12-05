@@ -3,3 +3,11 @@ Validar y mostrar mensajes de los abm's
 Enviar mensaje de error si no se pudo crear la persona (personcontroller)
 
 Mostrar mensaje satisfactorio si se pudo crear con exito la persona
+
+
+en el editar del nested form no muestra la fuente de contacto correcta (el select guachin)
+
+
+
+
+valido en el modelo las asociaciones? si es asi acordarse de validar de un solo lado o caemos en loop

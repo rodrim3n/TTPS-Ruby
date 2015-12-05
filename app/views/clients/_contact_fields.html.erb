@@ -8,12 +8,7 @@
         <%= content_tag(:option, c, value: c) %>
       <% end %>
     <% end %>
+    <%= f.link_to_remove "Eliminar" %>
   </div>
 </div>
 
-<div class="form-group">
-  <%= f.label :_destroy, "Eliminar", :class => 'col-sm-2 control-label' %>
-  <div class="col-sm-5">
-    <%= f.check_box :_destroy %>
-  </div>
-</div>

@@ -1,4 +1,4 @@
-<%= form_for @client, html: {class: 'form-horizontal'} do |f| %>
+<%= nested_form_for @client, html: {class: 'form-horizontal'} do |f| %>
   <div class="form-group">
     <%= f.label :name, 'Nombre', :class => 'col-sm-2 control-label' %>
     <div class="col-sm-5">
@@ -45,6 +45,8 @@
   <%= f.fields_for :contacts do |builder| %>
     <%= render 'contact_fields', f: builder %>
   <% end %>
+
+  <%= f.link_to_add "Agregar contacto", :contacts %>
 
   <%= f.submit "Crear", :class => 'btn-lg btn btn-success' %>
 <% end %>

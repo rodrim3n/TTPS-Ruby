@@ -7,7 +7,7 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
-    2.times { @client.contacts.build }
+    @client.contacts.build
   end
 
   def show

@@ -1,6 +1,6 @@
 <h1 class="text-center">Cliente:  <%= "#{@client.name} #{@client.surname}" %> </h1>
 
-<%= form_for @client, html: {class: 'form-horizontal'} do |f| %>
+<%= nested_form_for @client, html: {class: 'form-horizontal'} do |f| %>
 
   <div class="form-group">
     <%= f.label :gender, 'Genero', :class => 'col-sm-2 control-label' %>
@@ -13,6 +13,8 @@
   <%= f.fields_for :contacts do |builder| %>
     <%= render 'contact_fields', f: builder %>
   <% end %>
+
+  <%= f.link_to_add "Agregar contacto", :contacts %>
 
   <%= f.submit "Guardar cambios", :class => 'btn btn-lg btn-success' %>
 <% end %>
