@@ -1,0 +1,36 @@
+es:
+  errors:
+    # The default format to use in full error messages.
+    format: "%{attribute} %{message}"
+
+      # The values :model, :attribute and :value are always available for interpolation
+      # The value :count is available when applicable. Can be used for pluralization.
+    messages:
+      model_invalid: "La validacion fallo: %{errors}"
+      inclusion: "no esta incluido en la lista"
+      exclusion: "es reservado"
+      invalid: "es valido"
+      confirmation: "doesn't match %{attribute}"
+      accepted: "must be accepted"
+      empty: "no puede ser vacio"
+      blank: "no puede estar vacio"
+      present: "debe ser vacio"
+      too_long:
+        one: "es muy largo (maximo es 1 caracter)"
+        other: "es muy lago (maximo es %{count} caracteres)"
+      too_short:
+        one: "es muy corto (minimo es 1 caracter)"
+        other: "es muy corto (minimo es %{count} caracteres)"
+      wrong_length:
+        one: "is the wrong length (should be 1 character)"
+        other: "is the wrong length (should be %{count} characters)"
+      not_a_number: "no es un numero"
+      not_an_integer: "no es un entero"
+      greater_than: "debe ser mayor que %{count}"
+      greater_than_or_equal_to: "debe ser mayor o igual a %{count}"
+      equal_to: "debe ser igual a %{count}"
+      less_than: "debe ser menor a %{count}"
+      less_than_or_equal_to: "debe ser menor o igual a %{count}"
+      other_than: "must be other than %{count}"
+      odd: "must be odd"
+      even: "must be even"
