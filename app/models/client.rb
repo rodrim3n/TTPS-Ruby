@@ -4,4 +4,7 @@ class Client < ActiveRecord::Base
                 reject_if: lambda { |attr| attr['value'].blank? }
 
   has_many :bills, :dependent => :destroy
+
+  validates :name, :surname, :gender, :dni, :birthdate, :cui, presence: true
+  validates :cui, :dni, uniqueness: true
 end
