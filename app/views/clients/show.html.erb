@@ -1,11 +1,17 @@
+<div class="container">
+<div class="row">
+
 <h1 class="text-capitalize"><%= "#{@client.name}  #{@client.surname}" %></h1>
 
 <dl class="dl-horizontal">
-  <dt>DNI</dt>
+  <dt>DNI:</dt>
   <dd><%= @client.dni %></dd>
 
   <dt>Fecha de nacimiento:</dt>
-  <dd><%= @client.birthdate %></dd>
+  <dd><%= date(@client.birthdate) %></dd>
+
+  <dt>Edad:</dt>
+  <dd><%= age(@client.birthdate) %></dd>
 
   <dt>Genero:</dt> 
   <dd><%= @client.gender %></dd>
@@ -26,5 +32,17 @@
   </dd>
 </dl>
 
+<p> El monto total facturado por año para el cliente (al estilo "En 2015 facturó $ 999.999,00").  </p>
+<p><%= @bills_by_year %></p>
+
+<p> La cantidad de facturas que el cliente ha emitido por mes desde Enero del corriente año.  </p>
+<p><%= @bills_per_month %></p>
+
+<p> Las 5 personas a las que más les ha facturado ese cliente. </p>
+<p><%= @most_sold %></p>
+
 <%= link_to 'Volver', clients_path, :class => 'btn btn-warning' %>
 <%= link_to 'Editar', edit_client_path(@client), :class => 'btn btn-primary' %>
+</div>
+</div>
+

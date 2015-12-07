@@ -1,23 +1,47 @@
+<div class='container'>
 <h1 class="text-center">Cliente:  <%= "#{@client.name} #{@client.surname}" %> </h1>
 
-<%= nested_form_for @client, html: {class: 'form-horizontal'} do |f| %>
+<div class='row'>
+  <%= nested_form_for @client, html: {class: 'form-horizontal'} do |f| %>
 
-  <div class="form-group">
-    <%= f.label :gender, 'Genero', :class => 'col-sm-2 control-label' %>
-    <div class="col-sm-5">
-      <%= f.text_field :gender, :class => 'form-control' %>
+    <% if @client.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@client.errors.count, "error") %>
+        </h2>
+        <ul>
+          <% @client.errors.full_messages.each do |msg| %>
+            <li class="alert alert-danger"><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class='col-md-3 col-md-offset-2'>
+      <div class="form-group">
+        <%= f.label :gender, 'Genero', :class => 'col-sm-2 control-label' %>
+        <%= f.text_field :gender, :class => 'form-control' %>
+      </div>
     </div>
+
+    <div class='col-md-3 col-md-offset-2'>
+      <%= f.fields_for :contacts do |builder| %>
+        <%= render 'contact_fields', f: builder %>
+      <% end %>
+
+      <%= f.link_to_add :contacts, :class => 'btn btn-default' do %>
+        <span class="glyphicon glyphicon-plus"></span> Agregar
+      <% end %>
+    </div>
+</div> <%# end row! %>
+
+<div class='row'>
+  <div class="col-md-1 col-md-offset-5">
+    <%= f.submit "Guardar cambios", :class => 'btn btn-lg btn-success' %>
+    <% end %> <%# end form! %>
   </div>
-
-  <h3 class="text-center">Medios de contacto:</h3>
-  <%= f.fields_for :contacts do |builder| %>
-    <%= render 'contact_fields', f: builder %>
-  <% end %>
-
-  <%= f.link_to_add "Agregar contacto", :contacts %>
-
-  <%= f.submit "Guardar cambios", :class => 'btn btn-lg btn-success' %>
-<% end %>
+</div> <%# end row! %>
 
 <%= link_to 'Volver', clients_path, :class => 'btn btn-warning' %>
 <%= link_to 'Ver', @client, :class => 'btn btn-info' %>
+</div> <%# end container! %>

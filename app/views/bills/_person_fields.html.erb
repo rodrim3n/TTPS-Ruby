@@ -1,11 +1,14 @@
 <%= form_for :person, remote: true, url: {controller: "people", action: "create"}, html:{id: 'new-person-form'} do |f| %>
-  <div class="actions">
-  <%= f.label :name, 'Nombre' %><br>
-  <%= f.text_field :name %><br>
+  <div class="form-group">
+    <%= f.label :name, 'Nombre' %>
+    <%= f.text_field :name, :class => 'form-control' %>
+  </div>
 
-  <%= f.label :cui, 'CUIT/CUIL' %><br>
-  <%= f.text_field :cui %><br>
+  <div class="form-group">
+    <%= f.label :cui, 'CUIT/CUIL' %>
+    <%= f.text_field :cui, :class => 'form-control'  %>
+  </div>
 
-  <%= f.submit 'Guardar'%>
-</div>
+
+  <%= f.submit "Crear Persona", :class => 'btn-md btn btn-success' %>
 <% end %>

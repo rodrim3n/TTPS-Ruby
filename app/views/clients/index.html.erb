@@ -1,33 +1,38 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Clientes</div>
+<div class="container">
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">Clientes</div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>DNI</th>
-        <th>CUIT/CUIL</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @clients.each do |c| %>
-      <tr>
-          <td><%= c.name %></td>
-          <td><%= c.surname %></td>
-          <td><%= c.dni %></td>
-          <td><%= c.cui %></td>
-          <td>
-            <%= link_to 'Ver', client_path(c), :class => 'btn btn-info' %>
-            <%= link_to 'Editar', edit_client_path(c), :class => 'btn btn-primary' %>
-            <%= link_to 'Borrar', client_path(c), method: :delete,
-              data: {confirm: 'Esta seguro de eliminar al cliente?'}, :class => 'btn btn-danger' %>
-          </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>DNI</th>
+          <th>CUIT/CUIL</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @clients.each do |c| %>
+        <tr>
+            <td><%= c.name %></td>
+            <td><%= c.surname %></td>
+            <td><%= c.dni %></td>
+            <td><%= c.cui %></td>
+            <td>
+              <%= link_to 'Ver', client_path(c), :class => 'btn btn-info' %>
+              <%= link_to 'Editar', edit_client_path(c), :class => 'btn btn-primary' %>
+              <%= link_to 'Borrar', client_path(c), method: :delete,
+                data: {confirm: 'Esta seguro de eliminar al cliente?'}, :class => 'btn btn-danger' %>
+            </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
+  </div>
+
+  <h3><%= link_to 'Crear cliente', new_client_path, :class => 'btn btn-default' %></h3>
 </div>
-<h3><%= link_to 'Crear cliente', new_client_path, :class => 'btn btn-default' %></h3>
+</div>

@@ -1,3 +1,6 @@
+<div class="container">
+<div class="row">
+
 <div class="panel panel-default">
   <div class="panel-heading">Facturas</div>
 
@@ -8,6 +11,8 @@
         <th>Fecha de emision</th>
         <th>Cliente</th>
         <th>CUIL/CUIT</th>
+        <th>Persona</th>
+        <th>CUIL/CUIT</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -16,9 +21,11 @@
       <% @bills.each do |bill| %>
         <tr>
           <td><%= bill.id %></td>
-          <td><%= bill.emission_date %></td>
+          <td><%= date(bill.emission_date) %></td>
           <td><%= "#{bill.client.name}  #{bill.client.surname}"%></td>
           <td><%= bill.client.cui %></td>
+          <td><%= "#{bill.person.name}"%></td>
+          <td><%= bill.person.cui %></td>
           <td>
             <%= link_to 'Ver', bill, :class => 'btn btn-info' %>
             <%= link_to 'Editar', edit_bill_path(bill), :class => 'btn btn-primary' %>
@@ -31,3 +38,5 @@
 </div>
 
 <%= link_to 'Crear factura', new_bill_path, :class => 'btn btn-default' %>
+</div>
+</div>

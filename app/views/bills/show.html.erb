@@ -1,11 +1,12 @@
-<h1 class="text-capitalize"><%= "#{@bill.client.name}  #{@bill.client.surname}" %></h1>
-
 <dl class="dl-horizontal">
+  <dt>Cliente:<dt>
+  <dd class="text-capitalize"><%= "#{@bill.client.name}  #{@bill.client.surname}" %></dd>
+
   <dt>CUIT/CUIL del cliente:<dt>
-  <dd><%= @bill.client.cui %></dt>
+  <dd><%= @bill.client.cui %></dd>
 
   <dt>Fecha de emision: </dt>
-  <dd><%= @bill.emission_date %></dd>
+  <dd><%= date(@bill.emission_date) %></dd>
 
   <dt>Persona:</dt>
   <dd><%= @bill.person.name %></dd>

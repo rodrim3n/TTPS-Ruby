@@ -1,36 +1,57 @@
+<div class='row'>
+
 <%= form_for(@bill) do |f| %>
+
   <% if @bill.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
-
       <ul>
       <% @bill.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li class='alert alert-danger'><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.label :description, 'Descripcion' %><br>
-    <%= f.text_field :description %><br>
+  <div class='col-md-3 col-md-offset-2'>
+    <div class="form-group">
+      <%= f.label :description, 'Descripcion' %>
+      <%= f.text_field :description, :class => 'form-control'  %>
+    </div>
 
-    <%= f.label :total, 'Monto' %><br>
-    <%= f.text_field :total %><br>
+    <div class="form-group">
+      <%= f.label :total, 'Monto' %>
+      <%= f.text_field :total, :class => 'form-control'%>
+    </div>
 
-    <%= f.label :client_id, 'CUIT/CUIL del Cliente' %><br>
-    <%= f.collection_select :client_id, Client.all, :id, :cui %><br>
-
-    <%= f.label :person_id, 'CUIT/CUIL de la Persona' %><br>
-    <%= f.collection_select :person_id, Person.all, :id, :cui %>
-
-    <%= link_to 'Nueva Person', '#new_person', 'data-toggle' => 'modal' %><br>
-
-    <%= f.label :emission_date, "Fecha de emision" %><br>
-    <%= f.date_field :emission_date %><br>
-    <%= f.submit %>
+    <div class="form-group">
+      <%= f.label :emission_date, "Fecha de emision" %>
+      <%= f.date_field :emission_date , :class => 'form-control'  %>
+    </div>
   </div>
-<% end %>
+
+  <div class='col-md-3 col-md-offset-2'>
+    <div class="form-group">
+      <%= f.label :client_id, 'CUIT/CUIL del Cliente' %><br>
+      <%= f.collection_select :client_id, Client.all, :id, :cui, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :person_id, 'CUIT/CUIL de la Persona' %><br>
+      <%= f.collection_select :person_id, Person.all, :id, :cui, class: 'form-control' %>
+      <%= link_to '#new_person', 'data-toggle' => 'modal', class: 'btn btn-default' do  %>
+          <span class="glyphicon glyphicon-plus"></span> Agregar
+      <% end %>
+    </div>
+
+  </div>
+</div> <%# end row! %>
+
+<div class='row'>
+  <div class="col-md-1 col-md-offset-5">
+    <%= f.submit "Crear Factura", :class => 'btn-lg btn btn-success' %>
+    <% end %> <%# end form! %>
+  </div>
+</div> <%# end row! %>
 
 <div class="modal fade" id="new_person" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

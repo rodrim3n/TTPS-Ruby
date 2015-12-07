@@ -1,14 +1,16 @@
 <div class="form-group">
-    <%= f.label :value, "Contacto", :class => 'col-sm-2 control-label' %>
-  <div class="col-sm-5">
+    <%= f.label :value, "Contacto" %>
     <%= f.text_field :value, :class => 'form-control' %>
 
     <%= f.select(:source) do %>
       <% ['Whatsapp', 'Telefono', 'Mail'].each do |c| %>
-        <%= content_tag(:option, c, value: c) %>
+        <%= content_tag(:option, c, value: c.downcase) %>
       <% end %>
     <% end %>
-    <%= f.link_to_remove "Eliminar" %>
-  </div>
+
+    <%= f.link_to_remove :class => 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-remove"></span> Eliminar
+    <% end %>
+
 </div>
 
