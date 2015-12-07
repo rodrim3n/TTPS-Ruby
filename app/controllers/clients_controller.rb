@@ -11,9 +11,9 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @bills_by_year = @client.bills.by_year(Time.now.to_date).sum('total')
-    @bills_per_month = @client.bills.per_month(Time.now.to_date)
-    @most_sold = @client.bills.most_sold
+    @bills_by_year = @client.bills.by_year('2015').sum('total')
+    @bills_per_month = @client.bills.per_month('2015')
+    @most_sold = @client.bills.most_sold.first(5)
   end
 
   def edit
