@@ -2,11 +2,8 @@
     <%= f.label :value, "Contacto" %>
     <%= f.text_field :value, :class => 'form-control' %>
 
-    <%= f.select(:source) do %>
-      <% ['Whatsapp', 'Telefono', 'Mail'].each do |c| %>
-        <%= content_tag(:option, c, value: c.downcase) %>
-      <% end %>
-    <% end %>
+    <%= f.select(:source, options_for_select(
+      [['Whatsapp', 'whatsapp'], ['Telefono', 'telefono'], ['Mail', 'mail']], selected: f.object.source)) %>
 
     <%= f.link_to_remove :class => 'btn btn-default' do %>
       <span class="glyphicon glyphicon-remove"></span> Eliminar
