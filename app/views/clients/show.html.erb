@@ -32,14 +32,20 @@
   </dd>
 </dl>
 
-<p> El monto total facturado por año para el cliente (al estilo "En 2015 facturó $ 999.999,00").  </p>
-<p><%= @bills_by_year %></p>
+<h3> El monto total facturado por año para el cliente (al estilo "En 2015 facturó $ 999.999,00").  </h3>
+<% @bills_by_year.each do |year, amount| %>
+  <p><%= "En #{year} facturó: #{amount}" %></p>
+<% end %>
 
-<p> La cantidad de facturas que el cliente ha emitido por mes desde Enero del corriente año.  </p>
-<p><%= @bills_per_month %></p>
+<h3> La cantidad de facturas que ha emitido por mes desde Enero del corriente año:  </h3>
+<% @bills_per_month.each do |month_total| %>
+  <p><%= "#{monthname_from_int(month_total[0])} emitió #{month_total[1]}"%></p>
+<% end %>
 
-<p> Las 5 personas a las que más les ha facturado ese cliente. </p>
-<p><%= @most_sold %></p>
+<h3> Las 5 personas a las que más les ha facturado: </h3>
+<% @most_sold.each do |client, total| %>
+  <p><%= "A #{client}: #{total}"  %></p>
+<% end %>
 
 <%= link_to 'Volver', clients_path, :class => 'btn btn-warning' %>
 <%= link_to 'Editar', edit_client_path(@client), :class => 'btn btn-primary' %>

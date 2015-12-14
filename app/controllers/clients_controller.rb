@@ -11,9 +11,15 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @bills_by_year = @client.bills.by_year('2015').sum('total')
+    @bills_by_year = ((5.years.ago.year)..(Time.now.year)).collect do |year|
+      [year, @client.bills.by_year(year).sum('total')]
+    end
+
     @bills_per_month = @client.bills.per_month('2015')
-    @most_sold = @client.bills.most_sold.first(5)
+
+    @most_sold = @client.bills.most_sold.first(5).collect  do |person_total|
+      [ Person.find_by(id: person_total[0]).name, person_total[1] ]
+    end
   end
 
   def edit

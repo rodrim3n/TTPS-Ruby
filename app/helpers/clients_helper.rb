@@ -6,4 +6,9 @@ module ClientsHelper
   def date(a_date)
     a_date.strftime("%d/%m/%Y")
   end
+  def monthname_from_int(int)
+    months = %w(enero febrero marzo abril mayo junio julio agosto septiembre
+                octubre noviembre diciembre)
+    months[int.to_i]
+  end
 end
