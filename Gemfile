@@ -25,6 +25,7 @@ gem 'select2-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'nested_form'
 gem 'rails-i18n'
+gem 'faker'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
