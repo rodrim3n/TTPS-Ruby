@@ -1,4 +1,4 @@
 class Contact < ActiveRecord::Base
-  belongs_to :client, :dependent => :destroy
+  belongs_to :client
   validates :source, inclusion: { in: %w(whatsapp telefono mail skype) }
 end
