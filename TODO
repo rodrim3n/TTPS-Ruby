@@ -1,5 +1,0 @@
-validar asociaciones en modelos.
-
-si elimino un cliente no me elimina los dependientes, ejemplos contactos de un cliente al eliminar cliente.
-
-faltan test
