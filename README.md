@@ -22,8 +22,7 @@
 
 ## Seed de datos
   
-  En el seed de datos se crearon 10 clientes del sistema, 10 personas finales a las cuales se le emiten facturas, y 30 facturas.
-
+  En el seed de datos se crearon 10 clientes, 10 personas finales a las cuales se le emiten facturas, y 30 facturas.
 
 ## Nota
 
