@@ -9,16 +9,18 @@ class BillTest < ActiveSupport::TestCase
                 person_id: 1,
                 client_id: 1,
                 )
-    assert_not_empty bill.errors.full_messages
+    assert_predicate bill, :invalid?
   end
 
   test "creacion SIN errores de validacion" do
+    client = Client.first
+    person = Person.first
     bill = Bill.new(description: 'una descripcion',
                 total: 100,
                 emission_date: '2015-09-09',
-                person_id: 1,
-                client_id: 1,
+                person_id: person,
+                client_id: client,
                 )
-    assert bill.save
+    assert bill.save, bill.errors.full_messages
   end
 end
