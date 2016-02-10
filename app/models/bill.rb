@@ -2,7 +2,7 @@ class Bill < ActiveRecord::Base
   belongs_to :person
   belongs_to :client
 
-  validates :description, :total, :emission_date, presence: true
+  validates :description, :total, :emission_date, :person, :client, presence: true
   validates :total, numericality: true
 
   validates_associated :person, :client
